@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js fixed-layout">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>美神橄欖</title>
+		<meta name="description" content="这是一个 index 页面">
+		<meta name="keywords" content="index">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="i/favicon.png">
+		<link rel="apple-touch-icon-precomposed" href="i/app-icon72x72@2x.png">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="stylesheet" href="css/amazeui.min.css" />
+		<link rel="stylesheet" href="css/admin.css">
+		<link rel="stylesheet" href="css/class.css">
+	</head>
+
+	<body>
+		<header class="am-topbar am-topbar-inverse admin-header">
+			<div class="am-topbar-brand">
+				<strong>美神橄欖の窩</strong>
+			</div>
+
+			<!--<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>-->
+
+			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+					<li >
+						<a href="javascript:;">訊息 </a>
+					</li>
+					<li >
+						<a href="admin_product.html">產品 </a>
+					</li>
+					<li >
+						<a href="#">類別 </a>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<div class="am-cf admin-main">
+			<div class="admin-sidebar am-offcanvas" >
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<!--<button type="button" class="am-btn am-btn-primary" id="createClassBtn" style="background-color: mediumpurple;width: 100%;">
+					  新增類別
+					</button>-->
+					<button id="addclassbutton" type="button" class="am-btn am-btn-primary" data-am-modal="{target: '#createClassModal', closeViaDimmer: 1}" >
+					  新增類別
+					</button>
+
+					<!--類別全選checkbox按鍵-->
+					<div class="am-btn-group">
+						<label class="am-btn am-btn-success" >
+							<input id="clickAll" type="checkbox" name="doc-js-btn" class="bLarger" >   全選/全不選
+						</label>
+					</div>
+
+					<!--類別複選checkbox按鍵-->
+					<div class="am-btn-group" id="form" ></div>
+				</div>
+			</div>
+
+			<div id="content" class="admin-content">
+				<!--選項卡-->
+				<div class=" admin-content-body">
+
+					<!--選項卡內容-->
+					<!--顯示/編輯-->
+					<div class="am-fr">
+						<button type="button" class="am-btn am-btn-danger am-round " id="doc-confirm-toggle" ><span class="am-icon-trash-o" >  刪除</span></button>
+					</div>
+					<br /><br /><br />
+
+					<div class=" am-active am-scrollable-vertical" >
+						<table class="am-table" id="table" >
+							<tr id="space" >&nbsp;</tr>
+						</table>
+						<footer class="admin-content-footer " >
+							<p class="am-padding-left " >
+								© 2016 CSMU, Inc. Licensed under Trie Kai license.
+							</p>
+						</footer>
+					</div>
+					<!--刪除-->
+
+				</div>
+
+			</div>
+
+			<!--刪除確認MODAL視窗-->
+			<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+				<div class="am-modal-dialog">
+					<div id="checkdelete" class="am-modal-bd" >
+						你確定要刪除這些類別嗎?
+					</div>
+					<div class="am-modal-footer">
+						<span id="checkdeletecancel" class="am-modal-btn"  data-am-modal-cancel> 取消</span>
+						<span id="checkdeleteok" class="am-modal-btn"  data-am-modal-confirm>确定</span>
+					</div>
+				</div>
+			</div>
+
+			<!--新增MODAL視窗-->
+			<div class="am-modal am-modal-no-btn" tabindex="-1" id="createClassModal">
+				<div class="am-modal-dialog">
+
+					<div class="am-modal-hd">
+						<span id="addclass" >新增類別</span>
+						<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+					</div>
+					<div class="am-modal-bd ">
+						<div class="am-modal-bd">
+							<span id="addclasstitle">父類別 (可不選)</span>
+							<form id="insertClass" name="insertClass" action="php/insert_class.php" method="post">
+								<select data-am-selected="{searchBox: 1} " id="classFather" name="classFather" ></select>
+								<!--父類別下拉選單-->
+								</br><span id="addclasshint" >提示：如果要新增父類別項目，請不要選擇父類別</span></br>
+								</br>
+								<span id="addclassname" >類別名稱</span>
+								<input type="text" id="className" name="className" class="am-modal-prompt-input">
+								</br>
+								<input id="classID" type="hidden" name="classID">
+								<!--紀錄product選單中的value值-->
+								<button type="button" class="am-btn am-btn-primary am-round" id="btnSubmit">新增</button>
+								<!--送出選單的按鈕-->
+								</br>
+								<div id="echoMessage" ></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="am-modal am-modal-no-btn" tabindex="-1" id="messageModal">
+				<div class="am-modal-dialog">
+
+					<div class="am-modal-hd">
+						<span id="echoMessagetitle">訊息</span>
+						<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+					</div>
+					<div class="am-modal-bd ">
+						<div class="am-modal-bd">
+							<div id="showMessage" ></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		</div>
+		<!-- content end -->
+		<script src="js/jquery.min.js "></script>
+		<!--<![endif]-->
+		<script src="js/amazeui.min.js "></script>
+		<script src="js/app.js "></script>
+		<script src="js/class.js"></script>
+	</body>
+
+</html>

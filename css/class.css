@@ -1,0 +1,146 @@
+<style> .hiddenBox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0
+}
+
+.am-scrollable-vertical {
+	height: 78vh !important;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	resize: vertical
+}
+
+.am-btn {
+	font-size: 25px;
+}
+
+input.bLarger {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#table input.bLarger {
+	width: 40px;
+	height: 40px;
+}
+
+.myam-btn {
+	font-size: 25px;
+	margin-bottom: 0;
+	padding: .0em 1em;
+	vertical-align: middle;
+	line-height: 1;
+	border: 1px solid transparent;
+	cursor: pointer;
+	user-select: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#topbar-collapse li {
+	width: 75px;
+	text-align: center;
+}
+
+.admin-sidebar {
+	width: 20%;
+	float: left;
+	position: fixed;
+	top: 56px;
+	overflow-y: auto;
+	height: 90vh;
+	min-height: auto;
+}
+
+.am-btn-group {
+	width: 100%;
+}
+
+.am-btn-success {
+	width: 100%;
+	text-align: left;
+}
+
+#content {
+	width: 80%;
+	float: right;
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+#doc-confirm-toggle {
+	vertical-align: middle;
+}
+
+.am-scrollable-vertical {
+	overflow: auto;
+	overflow-x: hidden;
+	height: 70vh;
+}
+
+#table {
+	width: 100%;
+}
+
+
+/*.am-table tr{
+	height:70vh;
+}*/
+
+.admin-content-footer {
+	position: relative;
+}
+
+#checkdelete {
+	font-size: 35px;
+}
+
+#checkdeleteok {
+	font-size: 30px;
+	color: red;
+	height: 8vh;
+	vertical-align: middle;
+}
+
+#checkdeletecancel {
+	font-size: 30px;
+	height: 8vh;
+	vertical-align: middle;
+}
+#addclass{
+	font-size: 35px;
+}
+#addclasstitle{
+	font-size: 20px;  
+}
+#addclasshint{
+	color: red;
+}
+#classFather{
+	font-size: 30px;
+}
+#addclassname{
+	font-size: 20px;  
+}
+#echoMessage{
+	color: red; font-size: 20px;
+}
+#echoMessagetitle{
+	font-size: 35px;
+}
+#showMessage{
+	color: red; font-size: 30px;
+}
+#addclassbutton{
+	background-color: mediumpurple;width: 100%;
+}
+#space{
+	height:70vh ;
+}
+.am-padding-left{
+	margin-top: 13px;
+}
+</style>
